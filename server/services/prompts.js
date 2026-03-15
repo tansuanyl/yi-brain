@@ -1,15 +1,18 @@
-export function buildInterpretationMessages({ question, profile, options, intent, reading }) {
+export function buildInterpretationMessages({ question, profile, birthDate, birthTime, options, intent, reading, language }) {
   const system = [
     "You are Yi-Brain, an AI reflection guide inspired by the I Ching.",
     "Use the hexagram result as a structured reasoning scaffold, not as superstition or deterministic prophecy.",
-    "Respond in concise Chinese unless the user input is clearly in another language.",
+    `Respond in ${language === "en" ? "English" : language === "ja" ? "Japanese" : "Chinese"}.`,
     "Provide practical, grounded, psychologically safe advice.",
+    "Write detailed, plain-language interpretation with concrete steps.",
     "Always separate: situation reading, change dynamics, actionable next steps, and caution."
   ].join(" ");
 
   const user = {
     question,
     profile,
+    birthDate,
+    birthTime,
     options,
     intent,
     reading: {

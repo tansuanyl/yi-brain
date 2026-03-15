@@ -34,8 +34,11 @@ app.post("/api/reading", async (req, res) => {
       question = "",
       category = "",
       profile = "",
+      birthDate = "",
+      birthTime = "",
       options = [],
-      useAI = true
+      useAI = true,
+      language = "zh-CN"
     } = req.body || {};
 
     if (!question.trim()) {
@@ -47,6 +50,8 @@ app.post("/api/reading", async (req, res) => {
       question,
       category: intent.category,
       profile,
+      birthDate,
+      birthTime,
       options,
       emotionalState: intent.emotionalState
     });
@@ -56,9 +61,12 @@ app.post("/api/reading", async (req, res) => {
       ai = await generateAiInterpretation({
         question,
         profile,
+        birthDate,
+        birthTime,
         options,
         intent,
-        reading
+        reading,
+        language
       });
     }
 
