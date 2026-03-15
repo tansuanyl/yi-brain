@@ -1,0 +1,274 @@
+:root {
+  --bg: #f2eadf;
+  --surface: rgba(255, 251, 245, 0.85);
+  --surface-strong: #fff9f1;
+  --ink: #1f1a17;
+  --muted: #6a5d51;
+  --accent: #b14d2f;
+  --accent-deep: #6e2616;
+  --line: rgba(31, 26, 23, 0.12);
+  --shadow: 0 20px 60px rgba(66, 36, 18, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(177, 77, 47, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(65, 32, 22, 0.14), transparent 25%),
+    linear-gradient(160deg, #f7f0e7 0%, #efe4d5 55%, #e7d8c5 100%);
+}
+
+.page-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.hero-copy,
+.hero-card,
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 36px;
+}
+
+.hero-card {
+  padding: 28px;
+  align-self: end;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Noto Serif SC", serif;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 1.05;
+}
+
+.lede,
+.panel-header p,
+.hero-card li,
+#status-text,
+.insight-card p,
+.insight-card li {
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+}
+
+.panel {
+  padding: 24px;
+}
+
+form,
+.insight-grid {
+  display: grid;
+  gap: 16px;
+}
+
+label span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--accent-deep);
+}
+
+textarea,
+input,
+select,
+button {
+  width: 100%;
+  border: 1px solid rgba(110, 38, 22, 0.15);
+  border-radius: 18px;
+  padding: 14px 16px;
+  font: inherit;
+}
+
+textarea,
+input,
+select {
+  background: rgba(255, 249, 241, 0.85);
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: 2px solid rgba(177, 77, 47, 0.2);
+  border-color: rgba(177, 77, 47, 0.4);
+}
+
+button {
+  cursor: pointer;
+  color: #fff7ef;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  border: none;
+  font-weight: 700;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.grid-two,
+.hexagram-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle input {
+  width: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.empty-state,
+.hexagram-card,
+.insight-card,
+.timeline-step {
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+
+.empty-state,
+.hexagram-card,
+.insight-card {
+  padding: 18px;
+}
+
+.hexagram-lines {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hex-line {
+  position: relative;
+  height: 16px;
+  display: grid;
+  align-items: center;
+}
+
+.hex-line.yang::before,
+.hex-line.yin::before,
+.hex-line.yin::after {
+  content: "";
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2e231c, #7a4934);
+}
+
+.hex-line.yang::before {
+  width: 100%;
+}
+
+.hex-line.yin {
+  grid-template-columns: 1fr 16px 1fr;
+  gap: 10px;
+}
+
+.hex-line.yin::before,
+.hex-line.yin::after {
+  width: 100%;
+}
+
+.hex-line.changing {
+  filter: drop-shadow(0 0 10px rgba(177, 77, 47, 0.28));
+}
+
+.hex-line.changing .marker {
+  position: absolute;
+  right: -6px;
+  top: -7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-step {
+  padding: 14px 16px;
+}
+
+.timeline-step strong {
+  color: var(--accent-deep);
+}
+
+.ai-output {
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .layout,
+  .grid-two,
+  .hexagram-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .page-shell {
+    width: min(100% - 20px, 1200px);
+    padding-top: 20px;
+  }
+
+  .hero-copy {
+    padding: 26px;
+  }
+}
