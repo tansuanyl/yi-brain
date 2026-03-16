@@ -8,6 +8,7 @@
       name="description"
       content="Yi-Brain 是一个以易经推演为核心逻辑的 AI 问答与决策辅助应用。"
     />
+    <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +22,10 @@
       <header class="hero">
         <div class="hero-copy">
           <div class="topbar">
-            <p class="eyebrow">Yi-Brain</p>
+            <div class="brand-lockup">
+              <img src="/logo-mark.svg" alt="Yi-Brain logo" class="brand-logo" />
+              <p class="eyebrow">Yi-Brain</p>
+            </div>
             <label class="lang-switcher">
               <span data-i18n="languageLabel">语言</span>
               <select id="language-select" aria-label="Language">
@@ -103,6 +107,17 @@
             </div>
 
             <label>
+              <span data-i18n="locationLabel">当前城市 / 地区</span>
+              <input
+                id="location"
+                name="location"
+                type="text"
+                data-i18n-placeholder="locationPlaceholder"
+                placeholder="例如：上海、北京、Tokyo"
+              />
+            </label>
+
+            <label>
               <span data-i18n="profileLabel">补充背景</span>
               <textarea
                 id="profile"
@@ -119,6 +134,7 @@
             </label>
 
             <button id="submit-button" type="submit" data-i18n="submitButton">起卦并推演</button>
+            <button id="fortune-button" type="button" class="secondary-button" data-i18n="fortuneButton">抽取今日签</button>
           </form>
         </section>
 
@@ -181,6 +197,66 @@
             <article class="insight-card">
               <h3 data-i18n="aiTitle">AI 解读</h3>
               <div id="ai-output" class="ai-output"></div>
+            </article>
+
+            <article class="insight-card">
+              <h3 data-i18n="dailyFortuneTitle">今日签</h3>
+              <div class="fortune-card">
+                <div class="fortune-hero">
+                  <div>
+                    <p class="fortune-eyebrow" data-i18n="dailyFortuneHeroLabel">今日签运</p>
+                    <div class="fortune-sign-row">
+                      <strong id="fortune-sign" class="fortune-sign">未抽取</strong>
+                      <span id="fortune-band" class="fortune-band">-</span>
+                    </div>
+                    <p id="daily-fortune" class="fortune-summary"></p>
+                  </div>
+                  <div class="fortune-side">
+                    <div class="fortune-chip">
+                      <span data-i18n="fortuneDateTitle">日期</span>
+                      <strong id="fortune-date">-</strong>
+                    </div>
+                    <div class="fortune-chip">
+                      <span data-i18n="fortuneWeatherTitle">天气</span>
+                      <strong id="fortune-weather">-</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="fortune-element-bar">
+                  <div class="fortune-element-item">
+                    <span data-i18n="fortunePersonalElementTitle">个人五行</span>
+                    <strong id="fortune-personal-element">-</strong>
+                  </div>
+                  <div class="fortune-element-item">
+                    <span data-i18n="fortuneTodayElementTitle">今日五行</span>
+                    <strong id="fortune-today-element">-</strong>
+                  </div>
+                  <div class="fortune-element-item">
+                    <span data-i18n="fortuneAdviceElementTitle">今日调和</span>
+                    <strong id="fortune-advice-element">-</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="fortune-meta">
+                <div class="fortune-box">
+                  <h4 data-i18n="baziTitle">你的八字</h4>
+                  <p id="fortune-bazi"></p>
+                </div>
+                <div class="fortune-box">
+                  <h4 data-i18n="todayFlowTitle">今日气场</h4>
+                  <p id="fortune-today-flow"></p>
+                </div>
+              </div>
+              <div class="fortune-grid">
+                <div class="fortune-box">
+                  <h4 data-i18n="fortuneSuitableTitle">今日宜</h4>
+                  <div id="fortune-suitable" class="fortune-tags"></div>
+                </div>
+                <div class="fortune-box">
+                  <h4 data-i18n="fortuneAvoidTitle">今日忌</h4>
+                  <div id="fortune-avoid" class="fortune-tags"></div>
+                </div>
+              </div>
             </article>
           </div>
         </section>

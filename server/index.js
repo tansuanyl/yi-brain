@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import { analyzeIntent } from "./services/intent.js";
+import { buildDailyFortune } from "./services/dailyFortune.js";
 import { buildReading } from "./services/iching.js";
 import { generateAiInterpretation } from "./services/llm.js";
 
@@ -81,6 +82,36 @@ app.post("/api/reading", async (req, res) => {
     console.error(error);
     res.status(500).json({
       error: "Failed to generate reading.",
+      details: error instanceof Error ? error.message : "Unknown error"
+    });
+  }
+});
+
+app.post("/api/daily-fortune", async (req, res) => {
+  try {
+    const {
+      birthDate = "",
+      birthTime = "",
+      location = "",
+      language = "zh-CN"
+    } = req.body || {};
+
+    const fortune = await buildDailyFortune({
+      birthDate,
+      birthTime,
+      location,
+      language
+    });
+
+    res.json({
+      app: process.env.APP_NAME || "Yi-Brain",
+      timestamp: new Date().toISOString(),
+      fortune
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Failed to generate daily fortune.",
       details: error instanceof Error ? error.message : "Unknown error"
     });
   }

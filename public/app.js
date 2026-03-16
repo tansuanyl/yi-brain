@@ -21,13 +21,18 @@ const translations = {
     optionsPlaceholder: "用中文逗号分隔，例如：留下，跳槽，创业",
     birthDateLabel: "出生日期",
     birthTimeLabel: "出生时间",
+    locationLabel: "当前城市 / 地区",
+    locationPlaceholder: "例如：上海、北京、Tokyo",
     profileLabel: "补充背景",
     profilePlaceholder: "例如：我在当前公司做了 5 年，最近成长停滞，但新机会风险较高。",
     useAiLabel: "调用 AI 生成现代语言解读",
     submitButton: "起卦并推演",
+    fortuneButton: "抽取今日签",
     statusIdle: "提交问题后，这里会展示本卦、变卦、变爻和行动建议。",
     statusLoading: "正在起卦、排爻并生成解读...",
     statusDone: "已完成推演，情绪识别：{emotion}，分类：{category}",
+    fortuneLoading: "正在结合出生信息、日期与天气生成今日签...",
+    fortuneDone: "今日签已生成：{sign} · {band}",
     resultTitle: "推演结果",
     emptyState: "Yi-Brain 会把你的问题转成一次“结构化易理推演”。",
     primaryHexagramTitle: "本卦",
@@ -40,7 +45,19 @@ const translations = {
     deepDiveTitle: "深度展开",
     temporalTitle: "时位感知解码",
     aiTitle: "AI 解读",
+    dailyFortuneTitle: "今日签",
+    dailyFortuneHeroLabel: "今日签运",
+    fortuneDateTitle: "日期",
+    fortuneWeatherTitle: "天气",
+    fortunePersonalElementTitle: "个人五行",
+    fortuneTodayElementTitle: "今日五行",
+    fortuneAdviceElementTitle: "今日调和",
+    baziTitle: "你的八字",
+    todayFlowTitle: "今日气场",
+    fortuneSuitableTitle: "今日宜",
+    fortuneAvoidTitle: "今日忌",
     requireQuestion: "请先输入你的问题。",
+    requireBirth: "建议至少填写出生日期后再抽取今日签。",
     failed: "请求失败，请稍后再试。",
     disabledAi: "当前未启用 AI 扩展解读，已显示规则式推演结果。",
     primaryLabel: "本卦",
@@ -74,13 +91,18 @@ const translations = {
     optionsPlaceholder: "Separate options with commas, for example: stay, switch, start a business",
     birthDateLabel: "Birth date",
     birthTimeLabel: "Birth time",
+    locationLabel: "Current city / region",
+    locationPlaceholder: "For example: Shanghai, Beijing, Tokyo",
     profileLabel: "Background",
     profilePlaceholder: "For example: I have worked at my current company for 5 years and growth feels flat, but new opportunities are risky.",
     useAiLabel: "Use AI for natural-language interpretation",
     submitButton: "Cast and Interpret",
+    fortuneButton: "Draw Daily Fortune",
     statusIdle: "Your primary hexagram, relating hexagram, changing lines, and action guidance will appear here.",
     statusLoading: "Casting hexagram, mapping lines, and generating interpretation...",
     statusDone: "Reading complete. Emotion: {emotion}, Category: {category}",
+    fortuneLoading: "Generating today's fortune from birth data, date, and weather...",
+    fortuneDone: "Today's fortune: {sign} · {band}",
     resultTitle: "Reading Result",
     emptyState: "Yi-Brain transforms your question into a structured I Ching reasoning session.",
     primaryHexagramTitle: "Primary Hexagram",
@@ -93,7 +115,19 @@ const translations = {
     deepDiveTitle: "Deep Interpretation",
     temporalTitle: "Phase-aware Decoding",
     aiTitle: "AI Interpretation",
+    dailyFortuneTitle: "Daily Fortune",
+    dailyFortuneHeroLabel: "Today's Reading",
+    fortuneDateTitle: "Date",
+    fortuneWeatherTitle: "Weather",
+    fortunePersonalElementTitle: "Personal Element",
+    fortuneTodayElementTitle: "Today's Element",
+    fortuneAdviceElementTitle: "Balance Today",
+    baziTitle: "Your BaZi",
+    todayFlowTitle: "Today's Flow",
+    fortuneSuitableTitle: "Recommended Today",
+    fortuneAvoidTitle: "Avoid Today",
     requireQuestion: "Please enter your question first.",
+    requireBirth: "It is recommended to provide at least your birth date before drawing today's fortune.",
     failed: "Request failed. Please try again shortly.",
     disabledAi: "AI interpretation is disabled. Rule-based reading is shown instead.",
     primaryLabel: "Primary",
@@ -127,13 +161,18 @@ const translations = {
     optionsPlaceholder: "例：残る、転職する、起業する",
     birthDateLabel: "生年月日",
     birthTimeLabel: "出生時刻",
+    locationLabel: "現在の都市 / 地域",
+    locationPlaceholder: "例：上海、北京、Tokyo",
     profileLabel: "補足背景",
     profilePlaceholder: "例：今の会社に5年いて成長が停滞していますが、新しい機会にはリスクがあります。",
     useAiLabel: "AIで現代語の解釈を生成する",
     submitButton: "起卦して推演する",
+    fortuneButton: "今日の御籤を引く",
     statusIdle: "ここに本卦、之卦、変爻、行動提案が表示されます。",
     statusLoading: "起卦・配爻・解釈を生成中...",
     statusDone: "推演完了。感情: {emotion}、カテゴリ: {category}",
+    fortuneLoading: "生年月日・日付・天気をもとに今日の御籤を生成中...",
+    fortuneDone: "本日の御籤: {sign} · {band}",
     resultTitle: "推演結果",
     emptyState: "Yi-Brain はあなたの質問を構造化された易経推演に変換します。",
     primaryHexagramTitle: "本卦",
@@ -146,7 +185,19 @@ const translations = {
     deepDiveTitle: "詳細解釈",
     temporalTitle: "時位デコーディング",
     aiTitle: "AI 解釈",
+    dailyFortuneTitle: "今日の御籤",
+    dailyFortuneHeroLabel: "本日の運勢",
+    fortuneDateTitle: "日付",
+    fortuneWeatherTitle: "天気",
+    fortunePersonalElementTitle: "個人五行",
+    fortuneTodayElementTitle: "今日の五行",
+    fortuneAdviceElementTitle: "今日の調和",
+    baziTitle: "あなたの八字",
+    todayFlowTitle: "今日の気の流れ",
+    fortuneSuitableTitle: "今日の宜",
+    fortuneAvoidTitle: "今日の忌",
     requireQuestion: "まず質問を入力してください。",
+    requireBirth: "今日の御籤を引く前に、生年月日を入れることをおすすめします。",
     failed: "リクエストに失敗しました。しばらくしてから再試行してください。",
     disabledAi: "AI 解釈は無効です。代わりにルールベースの推演を表示しています。",
     primaryLabel: "本卦",
@@ -162,6 +213,7 @@ const translations = {
 
 const form = document.querySelector("#reading-form");
 const submitButton = document.querySelector("#submit-button");
+const fortuneButton = document.querySelector("#fortune-button");
 const statusText = document.querySelector("#status-text");
 const emptyState = document.querySelector("#empty-state");
 const resultRoot = document.querySelector("#result-root");
@@ -177,6 +229,18 @@ const temporalStrategy = document.querySelector("#temporal-strategy");
 const aiOutput = document.querySelector("#ai-output");
 const plainReading = document.querySelector("#plain-reading");
 const deepDive = document.querySelector("#deep-dive");
+const dailyFortune = document.querySelector("#daily-fortune");
+const fortuneSign = document.querySelector("#fortune-sign");
+const fortuneBand = document.querySelector("#fortune-band");
+const fortuneDate = document.querySelector("#fortune-date");
+const fortuneWeather = document.querySelector("#fortune-weather");
+const fortunePersonalElement = document.querySelector("#fortune-personal-element");
+const fortuneTodayElement = document.querySelector("#fortune-today-element");
+const fortuneAdviceElement = document.querySelector("#fortune-advice-element");
+const fortuneBazi = document.querySelector("#fortune-bazi");
+const fortuneTodayFlow = document.querySelector("#fortune-today-flow");
+const fortuneSuitable = document.querySelector("#fortune-suitable");
+const fortuneAvoid = document.querySelector("#fortune-avoid");
 
 let currentLanguage = localStorage.getItem("yi-brain-language") || "zh-CN";
 languageSelect.value = currentLanguage;
@@ -206,6 +270,12 @@ function listHtml(items) {
 
 function paragraphsHtml(items) {
   return items.map((item) => `<p>${item}</p>`).join("");
+}
+
+function tagHtml(items, variant = "") {
+  return items
+    .map((item) => `<span class="fortune-tag ${variant}">${item}</span>`)
+    .join("");
 }
 
 function transformLines(lines) {
@@ -288,6 +358,7 @@ async function submitReading(event) {
   const profile = String(formData.get("profile") || "").trim();
   const birthDate = String(formData.get("birthDate") || "").trim();
   const birthTime = String(formData.get("birthTime") || "").trim();
+  const location = String(formData.get("location") || "").trim();
   const options = String(formData.get("options") || "")
     .split(/[，,]/)
     .map((item) => item.trim())
@@ -315,6 +386,7 @@ async function submitReading(event) {
         profile,
         birthDate,
         birthTime,
+        location,
         options,
         useAI,
         language: currentLanguage
@@ -352,6 +424,71 @@ async function submitReading(event) {
   }
 }
 
+async function submitDailyFortune() {
+  const formData = new FormData(form);
+  const birthDate = String(formData.get("birthDate") || "").trim();
+  const birthTime = String(formData.get("birthTime") || "").trim();
+  const location = String(formData.get("location") || "").trim();
+
+  if (!birthDate) {
+    statusText.textContent = t("requireBirth");
+  }
+
+  fortuneButton.disabled = true;
+  fortuneButton.textContent = t("fortuneLoading");
+  statusText.textContent = t("fortuneLoading");
+
+  try {
+    const response = await fetch("/api/daily-fortune", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        birthDate,
+        birthTime,
+        location,
+        language: currentLanguage
+      })
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || t("failed"));
+    }
+
+    emptyState.classList.add("hidden");
+    resultRoot.classList.remove("hidden");
+    fortuneSign.textContent = data.fortune.sign;
+    fortuneBand.textContent = data.fortune.band;
+    fortuneDate.textContent = data.fortune.date;
+    fortuneWeather.textContent = data.fortune.weather.locationName
+      ? `${data.fortune.weather.locationName} · ${data.fortune.weather.summary.replace(/^.*天气状态为\s*/, "").replace("。", "")}`
+      : data.fortune.weather.summary;
+    fortunePersonalElement.textContent = data.fortune.bazi
+      ? `${data.fortune.bazi.elements.dominant}旺 / ${data.fortune.bazi.elements.weakest}弱`
+      : "-";
+    fortuneTodayElement.textContent = `${data.fortune.todayBazi.elements.dominant}主气`;
+    fortuneAdviceElement.textContent = `${data.fortune.fiveElements.advice.recommendedElement}为宜`;
+    dailyFortune.innerHTML = `<p>${data.fortune.summary}</p>`;
+    fortuneBazi.textContent = data.fortune.bazi
+      ? `${data.fortune.bazi.text} · 五行偏${data.fortune.bazi.elements.dominant}，较弱${data.fortune.bazi.elements.weakest}`
+      : "未提供完整出生信息";
+    fortuneTodayFlow.textContent = `${data.fortune.todayBazi.text} · 今日五行偏${data.fortune.todayBazi.elements.dominant}`;
+    fortuneSuitable.innerHTML = tagHtml(data.fortune.suitable.all);
+    fortuneAvoid.innerHTML = tagHtml(data.fortune.unsuitable.all, "avoid");
+    statusText.textContent = t("fortuneDone", {
+      sign: data.fortune.sign,
+      band: data.fortune.band
+    });
+  } catch (error) {
+    statusText.textContent = error.message || t("failed");
+  } finally {
+    fortuneButton.disabled = false;
+    fortuneButton.textContent = t("fortuneButton");
+  }
+}
+
 languageSelect.addEventListener("change", () => {
   currentLanguage = languageSelect.value;
   localStorage.setItem("yi-brain-language", currentLanguage);
@@ -359,7 +496,11 @@ languageSelect.addEventListener("change", () => {
   if (!submitButton.disabled) {
     submitButton.textContent = t("submitButton");
   }
+  if (!fortuneButton.disabled) {
+    fortuneButton.textContent = t("fortuneButton");
+  }
 });
 
 applyTranslations();
 form.addEventListener("submit", submitReading);
+fortuneButton.addEventListener("click", submitDailyFortune);
