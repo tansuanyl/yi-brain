@@ -1,14 +1,12 @@
 const translations = {
   "zh-CN": {
     languageLabel: "语言",
-    heroTitle: "用易经结构推演，用 AI 语言与空间分析给建议。",
-    heroLede: "把决策推演、今日运势和家居风水评估放进同一套反思工具里，让建议更贴近真实生活。",
-    methodTitle: "方法",
-    method1: "卦象式 Prompting",
-    method2: "本卦到之卦的条件推演",
-    method3: "照片识别 + 风水整改建议",
-    formTitle: "开始提问",
-    formIntro: "输入你的问题、背景与可选方案，生成一份完整的结构化推演。",
+    heroTitle: "把命理推演、每日抽签与家居风水放进同一个入口。",
+    heroLede: "用三个清晰的功能分区，让用户直接选择要做的事，而不是在一个很长的表单里来回寻找。",
+    methodTitle: "功能入口",
+    method1: "生辰八字推演",
+    method2: "抽取今日签",
+    method3: "风水评估",
     questionLabel: "你的问题",
     questionPlaceholder: "例如：我是否应该在今年换工作？",
     categoryLabel: "问题分类",
@@ -28,13 +26,9 @@ const translations = {
     useAiLabel: "使用 AI 生成自然语言解读",
     submitButton: "开始推演",
     fortuneButton: "抽取今日签",
-    statusIdle: "提交问题或照片后，这里会显示分析结果。",
-    statusLoading: "正在起卦、排爻并生成解读...",
-    statusDone: "推演完成，情绪倾向：{emotion}，分类：{category}",
-    fortuneLoading: "正在结合生辰、日期与天气生成今日签...",
-    fortuneDone: "今日签已生成：{sign} · {band}",
-    resultTitle: "推演结果",
-    emptyState: "Yi-Brain 会把你的问题或空间照片转成结构化分析，而不是给出武断结论。",
+    resultTitle: "结果展示",
+    statusIdle: "提交任一功能后，这里会显示对应分析结果。",
+    emptyState: "Yi-Brain 会把你的输入转成结构化分析，而不是给出武断结论。",
     primaryHexagramTitle: "本卦",
     relatingHexagramTitle: "之卦",
     judgementTitle: "核心判断",
@@ -65,21 +59,51 @@ const translations = {
     upperLower: "上卦：{upper}（{upperNature}） / 下卦：{lower}（{lowerNature}）",
     linePhase: "第 {line} 爻 · {phase}",
     decodingTemp: "解读强度：{temperature}",
-    aiQuota: "AI 解读当前不可用：OpenAI 配额不足或账单未开通，已自动回退到规则解读。",
+    aiQuota: "AI 解读当前不可用：OpenAI 配额不足或账单未开启，已自动回退到规则解读。",
     aiNetwork: "AI 解读当前不可用：模型服务连接超时，已自动回退到规则解读。",
     aiGeneric: "AI 解读暂时不可用，已自动回退到详细规则解读。",
-    noBirthText: "未提供完整出生信息"
+    noBirthText: "未提供完整出生信息",
+    readingModeTitle: "生辰八字推演",
+    readingModeDesc: "输入问题、背景与生辰，获取结构化易经推演和 AI 解读。",
+    fortuneModeTitle: "抽取今日签",
+    fortuneModeDesc: "根据日期、生辰和所在地区，生成今日运势、五行建议与行动提示。",
+    fengshuiModeTitle: "风水评估",
+    fengshuiModeDesc: "上传空间照片，结合周易象意与 AI 视觉识别，输出风险点和整改建议。",
+    modeReading: "生辰八字推演",
+    modeFortune: "抽取今日签",
+    modeFengshui: "风水评估",
+    roomPhotoLabel: "空间照片",
+    roomTypeLabel: "空间类型",
+    roomTypePlaceholder: "例如：客厅、卧室、书房、办公室",
+    goalsLabel: "优化目标",
+    goalsPlaceholder: "例如：招财、睡眠稳定、提升专注、改善关系",
+    concernsLabel: "特别担忧",
+    concernsPlaceholder: "例如：镜子对床、门冲沙发、杂物太多、光线不足",
+    fengshuiSubmit: "开始风水评估",
+    fengshuiEmpty: "上传一张空间照片后，这里会显示整体判断、优点、风险点和整改建议。",
+    fengshuiStrengths: "有利点",
+    fengshuiIssues: "风险点",
+    fengshuiRecommendations: "整改建议",
+    fengshuiCaution: "提示",
+    statusLoadingReading: "正在起卦、排爻并生成解读...",
+    statusLoadingFortune: "正在结合生辰、日期与天气生成今日签...",
+    statusLoadingFengshui: "正在分析上传的空间照片...",
+    statusDoneReading: "推演完成，情绪倾向：{emotion}，分类：{category}",
+    statusDoneFortune: "今日签已生成：{sign} · {band}",
+    statusDoneFengshui: "风水评估已完成。",
+    uploadPhotoFirst: "请先上传一张空间照片。",
+    fengshuiPreviewAlt: "风水评估预览图",
+    notDrawnYet: "未抽取",
+    weatherFallback: "暂无天气信息"
   },
   en: {
     languageLabel: "Language",
-    heroTitle: "Reason with I Ching structure, answer with AI language and spatial review.",
-    heroLede: "Bring decision support, daily fortune, and feng shui photo analysis into one reflective toolkit.",
-    methodTitle: "Method",
-    method1: "Divination-style prompting",
-    method2: "Primary to relating scenario reasoning",
-    method3: "Photo recognition + feng shui fixes",
-    formTitle: "Ask Your Question",
-    formIntro: "Enter your question, context, and options to generate a structured reading.",
+    heroTitle: "Bring BaZi reasoning, daily fortune, and feng shui into one clear entry point.",
+    heroLede: "Three clear feature modes let people choose exactly what they need instead of navigating one long form.",
+    methodTitle: "Feature Entry",
+    method1: "BaZi Reading",
+    method2: "Daily Fortune",
+    method3: "Feng Shui Review",
     questionLabel: "Your question",
     questionPlaceholder: "For example: Should I change jobs this year?",
     categoryLabel: "Category",
@@ -97,15 +121,11 @@ const translations = {
     profileLabel: "Background",
     profilePlaceholder: "For example: I have worked at my current company for 5 years and growth feels flat, but new opportunities are risky.",
     useAiLabel: "Use AI for natural-language interpretation",
-    submitButton: "Cast and Interpret",
+    submitButton: "Start Reading",
     fortuneButton: "Draw Daily Fortune",
-    statusIdle: "Results will appear here after you submit a question or room photo.",
-    statusLoading: "Casting hexagram and generating interpretation...",
-    statusDone: "Reading complete. Emotion: {emotion}, Category: {category}",
-    fortuneLoading: "Generating today's fortune from birth data, date, and weather...",
-    fortuneDone: "Today's fortune: {sign} · {band}",
     resultTitle: "Results",
-    emptyState: "Yi-Brain turns your question or room photo into a structured reflection instead of a blunt verdict.",
+    statusIdle: "Results for the selected feature will appear here.",
+    emptyState: "Yi-Brain turns your input into a structured reflection instead of a blunt verdict.",
     primaryHexagramTitle: "Primary Hexagram",
     relatingHexagramTitle: "Relating Hexagram",
     judgementTitle: "Core Judgement",
@@ -139,20 +159,50 @@ const translations = {
     aiQuota: "AI interpretation is unavailable because the OpenAI quota is exhausted or billing is inactive.",
     aiNetwork: "AI interpretation is unavailable because the model service timed out.",
     aiGeneric: "AI interpretation is temporarily unavailable. A rule-based reading is shown instead.",
-    noBirthText: "Birth details not provided"
+    noBirthText: "Birth details not provided",
+    readingModeTitle: "BaZi Reading",
+    readingModeDesc: "Enter your question, context, and birth details to get a structured I Ching style reading.",
+    fortuneModeTitle: "Daily Fortune",
+    fortuneModeDesc: "Use date, birth details, and location to generate a daily sign, elemental balance, and practical guidance.",
+    fengshuiModeTitle: "Feng Shui Review",
+    fengshuiModeDesc: "Upload a room photo and receive a practical, AI-assisted feng shui review.",
+    modeReading: "BaZi Reading",
+    modeFortune: "Daily Fortune",
+    modeFengshui: "Feng Shui Review",
+    roomPhotoLabel: "Room photo",
+    roomTypeLabel: "Room type",
+    roomTypePlaceholder: "For example: living room, bedroom, study, office",
+    goalsLabel: "Goals",
+    goalsPlaceholder: "For example: wealth, sleep stability, focus, relationship harmony",
+    concernsLabel: "Special concerns",
+    concernsPlaceholder: "For example: mirror facing bed, blocked entry, clutter, weak lighting",
+    fengshuiSubmit: "Start Feng Shui Review",
+    fengshuiEmpty: "Upload a room photo to see a summary, strengths, issues, and remedies here.",
+    fengshuiStrengths: "Strengths",
+    fengshuiIssues: "Risk Points",
+    fengshuiRecommendations: "Recommendations",
+    fengshuiCaution: "Note",
+    statusLoadingReading: "Casting hexagram and generating interpretation...",
+    statusLoadingFortune: "Generating today's fortune from birth data, date, and weather...",
+    statusLoadingFengshui: "Analyzing the uploaded room photo...",
+    statusDoneReading: "Reading complete. Emotion: {emotion}, Category: {category}",
+    statusDoneFortune: "Today's fortune: {sign} · {band}",
+    statusDoneFengshui: "Feng shui assessment completed.",
+    uploadPhotoFirst: "Please upload a room photo first.",
+    fengshuiPreviewAlt: "Feng shui preview image",
+    notDrawnYet: "Not drawn",
+    weatherFallback: "Weather unavailable"
   },
   ja: {
     languageLabel: "言語",
-    heroTitle: "易経の構造で考え、AI の言葉と空間分析で助言する。",
-    heroLede: "意思決定支援、今日の運勢、風水写真分析をひとつの内省ツールにまとめます。",
-    methodTitle: "方法",
-    method1: "卦象ベースのプロンプティング",
-    method2: "本卦から之卦への条件推演",
-    method3: "写真認識 + 風水改善提案",
-    formTitle: "相談を始める",
-    formIntro: "質問、背景、選択肢を入力すると、構造化された推演を生成します。",
-    questionLabel: "あなたの質問",
-    questionPlaceholder: "例：今年転職するべきでしょうか？",
+    heroTitle: "命理推演、今日の運勢、風水評価をひとつの入口にまとめます。",
+    heroLede: "3つの機能を分けて表示し、長いフォームを探し回らなくても必要な機能をすぐ選べます。",
+    methodTitle: "機能入口",
+    method1: "生辰八字推演",
+    method2: "今日の運勢",
+    method3: "風水評価",
+    questionLabel: "質問",
+    questionPlaceholder: "例：今年転職したほうがいいですか？",
     categoryLabel: "カテゴリ",
     categoryAuto: "自動判定",
     categoryCareer: "仕事",
@@ -166,33 +216,29 @@ const translations = {
     locationLabel: "現在の都市 / 地域",
     locationPlaceholder: "例：上海、北京、Tokyo",
     profileLabel: "補足背景",
-    profilePlaceholder: "例：今の会社に 5 年いて成長が鈍化しているが、新しい機会にはリスクがある。",
-    useAiLabel: "AI で自然言語の解釈を生成する",
-    submitButton: "推演する",
+    profilePlaceholder: "例：今の会社で5年働いていて成長が鈍いが、新しい機会にはリスクもある。",
+    useAiLabel: "AIで自然言語の解釈を生成する",
+    submitButton: "推演を開始",
     fortuneButton: "今日の運勢を引く",
-    statusIdle: "質問または部屋の写真を送信すると、結果がここに表示されます。",
-    statusLoading: "起卦と解釈を生成しています...",
-    statusDone: "推演完了。感情傾向: {emotion}、カテゴリ: {category}",
-    fortuneLoading: "生年月日、日付、天気から今日の運勢を生成しています...",
-    fortuneDone: "今日の運勢: {sign} · {band}",
     resultTitle: "結果",
-    emptyState: "Yi-Brain は質問や部屋の写真を、断定ではなく構造化された内省へ変換します。",
+    statusIdle: "選択した機能の結果がここに表示されます。",
+    emptyState: "Yi-Brain は入力を構造化された内省に変換し、断定的な結論にはしません。",
     primaryHexagramTitle: "本卦",
     relatingHexagramTitle: "之卦",
     judgementTitle: "核心判断",
     lineAdviceTitle: "変爻の示唆",
     scenarioTitle: "条件推演",
     actionsTitle: "行動提案",
-    plainReadingTitle: "やさしい解説",
+    plainReadingTitle: "平易な解釈",
     deepDiveTitle: "深掘り",
-    temporalTitle: "ペース判断",
+    temporalTitle: "進め方",
     aiTitle: "AI 解釈",
     dailyFortuneTitle: "今日の運勢",
     dailyFortuneHeroLabel: "本日の流れ",
     fortuneDateTitle: "日付",
     fortuneWeatherTitle: "天気",
-    fortunePersonalElementTitle: "個人の五行",
-    fortuneTodayElementTitle: "今日の五行",
+    fortunePersonalElementTitle: "個人五行",
+    fortuneTodayElementTitle: "今日五行",
     fortuneAdviceElementTitle: "今日の調和",
     baziTitle: "あなたの八字",
     todayFlowTitle: "今日の気の流れ",
@@ -201,7 +247,7 @@ const translations = {
     fortuneAnalysisTitle: "今日の分析",
     requireQuestion: "まず質問を入力してください。",
     requireBirth: "今日の運勢を引く前に、少なくとも生年月日を入力してください。",
-    failed: "リクエストに失敗しました。しばらくしてから再試行してください。",
+    failed: "リクエストに失敗しました。少し待ってから再試行してください。",
     primaryLabel: "本卦",
     relatingLabel: "之卦",
     upperLower: "上卦: {upper}（{upperNature}） / 下卦: {lower}（{lowerNature}）",
@@ -209,20 +255,59 @@ const translations = {
     decodingTemp: "解釈強度: {temperature}",
     aiQuota: "AI 解釈は現在利用できません。OpenAI の利用枠または請求設定を確認してください。",
     aiNetwork: "AI 解釈は現在利用できません。モデル接続がタイムアウトしました。",
-    aiGeneric: "AI 解釈は一時的に利用できません。ルールベース解釈を表示しています。",
-    noBirthText: "出生情報が未入力です"
+    aiGeneric: "AI 解釈は一時的に利用できません。ルールベースの解釈を表示しています。",
+    noBirthText: "出生情報が未入力です",
+    readingModeTitle: "生辰八字推演",
+    readingModeDesc: "質問、背景、生辰を入力して、構造化された易経風の推演を得ます。",
+    fortuneModeTitle: "今日の運勢",
+    fortuneModeDesc: "日付、生辰、地域に基づき、今日の流れと行動の示唆を生成します。",
+    fengshuiModeTitle: "風水評価",
+    fengshuiModeDesc: "部屋の写真をアップロードし、AI を使った実用的な風水レビューを受け取ります。",
+    modeReading: "生辰八字推演",
+    modeFortune: "今日の運勢",
+    modeFengshui: "風水評価",
+    roomPhotoLabel: "部屋の写真",
+    roomTypeLabel: "空間タイプ",
+    roomTypePlaceholder: "例：リビング、寝室、書斎、オフィス",
+    goalsLabel: "改善目標",
+    goalsPlaceholder: "例：金運、睡眠安定、集中力、関係改善",
+    concernsLabel: "気になる点",
+    concernsPlaceholder: "例：鏡がベッド正面、入口が詰まる、物が多い、光が弱い",
+    fengshuiSubmit: "風水評価を開始",
+    fengshuiEmpty: "部屋の写真をアップロードすると、要約、利点、課題、改善案がここに表示されます。",
+    fengshuiStrengths: "利点",
+    fengshuiIssues: "リスク",
+    fengshuiRecommendations: "改善提案",
+    fengshuiCaution: "メモ",
+    statusLoadingReading: "起卦と解釈を生成しています...",
+    statusLoadingFortune: "生辰、日付、天気から今日の運勢を生成しています...",
+    statusLoadingFengshui: "アップロードした部屋写真を分析しています...",
+    statusDoneReading: "推演が完了しました。感情傾向: {emotion}、分類: {category}",
+    statusDoneFortune: "今日の運勢: {sign} · {band}",
+    statusDoneFengshui: "風水評価が完了しました。",
+    uploadPhotoFirst: "先に部屋の写真をアップロードしてください。",
+    fengshuiPreviewAlt: "風水プレビュー画像",
+    notDrawnYet: "未抽選",
+    weatherFallback: "天気情報なし"
   }
 };
 
-const form = document.querySelector("#reading-form");
+const readingForm = document.querySelector("#reading-form");
+const fortuneForm = document.querySelector("#fortune-form");
 const fengshuiForm = document.querySelector("#fengshui-form");
+
 const submitButton = document.querySelector("#submit-button");
 const fortuneButton = document.querySelector("#fortune-button");
 const fengshuiButton = document.querySelector("#fengshui-button");
+
 const statusText = document.querySelector("#status-text");
 const emptyState = document.querySelector("#empty-state");
 const resultRoot = document.querySelector("#result-root");
 const languageSelect = document.querySelector("#language-select");
+
+const modeButtons = Array.from(document.querySelectorAll(".mode-button"));
+const modePanels = Array.from(document.querySelectorAll(".mode-panel"));
+const resultBlocks = Array.from(document.querySelectorAll(".result-block"));
 
 const primaryHexagram = document.querySelector("#primary-hexagram");
 const relatingHexagram = document.querySelector("#relating-hexagram");
@@ -234,6 +319,7 @@ const temporalStrategy = document.querySelector("#temporal-strategy");
 const aiOutput = document.querySelector("#ai-output");
 const plainReading = document.querySelector("#plain-reading");
 const deepDive = document.querySelector("#deep-dive");
+
 const dailyFortune = document.querySelector("#daily-fortune");
 const fortuneSign = document.querySelector("#fortune-sign");
 const fortuneBand = document.querySelector("#fortune-band");
@@ -261,8 +347,12 @@ const fengshuiResult = document.querySelector("#fengshui-result");
 const fengshuiNote = document.querySelector("#fengshui-note");
 
 let currentLanguage = localStorage.getItem("yi-brain-language") || "zh-CN";
+let currentMode = "reading";
 let currentFengshuiImageDataUrl = "";
-languageSelect.value = currentLanguage;
+
+if (languageSelect) {
+  languageSelect.value = currentLanguage;
+}
 
 function getApiBaseUrl() {
   return String(window.YI_BRAIN_CONFIG?.apiBaseUrl || "").replace(/\/$/, "");
@@ -293,12 +383,122 @@ function escapeHtml(value) {
 
 function applyTranslations() {
   document.documentElement.lang = currentLanguage;
+
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     node.textContent = t(node.dataset.i18n);
   });
+
   document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
     node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder));
   });
+
+  document.querySelector('button[data-mode="reading"]').textContent = t("modeReading");
+  document.querySelector('button[data-mode="fortune"]').textContent = t("modeFortune");
+  document.querySelector('button[data-mode="fengshui"]').textContent = t("modeFengshui");
+
+  const panelHeaders = {
+    reading: ["readingModeTitle", "readingModeDesc"],
+    fortune: ["fortuneModeTitle", "fortuneModeDesc"],
+    fengshui: ["fengshuiModeTitle", "fengshuiModeDesc"]
+  };
+
+  Object.entries(panelHeaders).forEach(([mode, [titleKey, descKey]]) => {
+    const panel = document.querySelector(`[data-mode-panel="${mode}"]`);
+    if (!panel) {
+      return;
+    }
+
+    const [title, desc] = panel.querySelectorAll(".panel-header.compact > *");
+    if (title) {
+      title.textContent = t(titleKey);
+    }
+    if (desc) {
+      desc.textContent = t(descKey);
+    }
+  });
+
+  const fengshuiLabels = [
+    ["#fengshui-form label:nth-of-type(1) span", "roomPhotoLabel"],
+    ["#fengshui-room-type", "roomTypeLabel"],
+    ["#fengshui-goals", "goalsLabel"],
+    ["#fengshui-concerns", "concernsLabel"],
+    ["#fengshui-result article:nth-of-type(1) h3", "fengshuiStrengths"],
+    ["#fengshui-result article:nth-of-type(2) h3", "fengshuiIssues"],
+    ["#fengshui-result article:nth-of-type(3) h3", "fengshuiRecommendations"],
+    ["#fengshui-result article:nth-of-type(4) h3", "fengshuiCaution"]
+  ];
+
+  fengshuiLabels.forEach(([selector, key]) => {
+    const node = document.querySelector(selector);
+    if (node) {
+      const target = node.matches("input, textarea") ? node.closest("label")?.querySelector("span") : node;
+      if (target) {
+        target.textContent = t(key);
+      }
+    }
+  });
+
+  const roomTypeInput = document.querySelector("#fengshui-room-type");
+  const goalsInput = document.querySelector("#fengshui-goals");
+  const concernsInput = document.querySelector("#fengshui-concerns");
+
+  if (roomTypeInput) {
+    roomTypeInput.placeholder = t("roomTypePlaceholder");
+  }
+  if (goalsInput) {
+    goalsInput.placeholder = t("goalsPlaceholder");
+  }
+  if (concernsInput) {
+    concernsInput.placeholder = t("concernsPlaceholder");
+  }
+  if (fengshuiButton) {
+    fengshuiButton.textContent = t("fengshuiSubmit");
+  }
+  if (fengshuiEmpty) {
+    fengshuiEmpty.querySelector("p").textContent = t("fengshuiEmpty");
+  }
+  if (fengshuiPreview) {
+    fengshuiPreview.alt = t("fengshuiPreviewAlt");
+  }
+  if (fortuneSign && !fortuneSign.dataset.hasValue) {
+    fortuneSign.textContent = t("notDrawnYet");
+  }
+  if (!statusText.dataset.locked) {
+    statusText.textContent = t("statusIdle");
+  }
+}
+
+function setActiveMode(mode) {
+  currentMode = mode;
+
+  modeButtons.forEach((button) => {
+    const isActive = button.dataset.mode === mode;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  modePanels.forEach((panel) => {
+    panel.classList.toggle("hidden", panel.dataset.modePanel !== mode);
+  });
+
+  resultBlocks.forEach((block) => {
+    block.classList.toggle("hidden", block.dataset.resultBlock !== mode);
+  });
+}
+
+function setStatus(message) {
+  statusText.dataset.locked = "true";
+  statusText.textContent = message;
+}
+
+function releaseStatus() {
+  delete statusText.dataset.locked;
+}
+
+function showResultRoot(mode) {
+  setActiveMode(mode);
+  emptyState.classList.add("hidden");
+  resultRoot.classList.remove("hidden");
 }
 
 function listHtml(items) {
@@ -408,19 +608,14 @@ function renderAi(ai) {
   aiOutput.textContent = ai?.note || t("aiGeneric");
 }
 
-function showResultRoot() {
-  emptyState.classList.add("hidden");
-  resultRoot.classList.remove("hidden");
-}
-
 function formatFortuneWeather(fortune) {
   if (!fortune?.weather) {
-    return "-";
+    return t("weatherFallback");
   }
 
   return fortune.weather.locationName
     ? `${fortune.weather.locationName} · ${fortune.weather.summary}`
-    : fortune.weather.summary || "-";
+    : fortune.weather.summary || t("weatherFallback");
 }
 
 function formatBaziText(fortune) {
@@ -428,7 +623,7 @@ function formatBaziText(fortune) {
     return t("noBirthText");
   }
 
-  return `${fortune.bazi.text} · ${fortune.bazi.elements.dominant} 偏旺 / ${fortune.bazi.elements.weakest} 偏弱`;
+  return `${fortune.bazi.text} · ${fortune.bazi.elements.dominant} / ${fortune.bazi.elements.weakest}`;
 }
 
 function formatTodayFlowText(fortune) {
@@ -436,16 +631,16 @@ function formatTodayFlowText(fortune) {
     return "-";
   }
 
-  return `${fortune.todayBazi.text} · 今日主气偏向 ${fortune.todayBazi.elements.dominant}`;
+  return `${fortune.todayBazi.text} · ${fortune.todayBazi.elements.dominant}`;
 }
 
-function renderFengshuiAssessment(assessmentPayload) {
-  const assessment = assessmentPayload?.assessment || assessmentPayload?.fallback;
+function renderFengshuiAssessment(payload) {
+  const assessment = payload?.assessment || payload?.fallback;
   if (!assessment) {
     return;
   }
 
-  showResultRoot();
+  showResultRoot("fengshui");
   fengshuiEmpty.classList.add("hidden");
   fengshuiResult.classList.remove("hidden");
 
@@ -455,9 +650,9 @@ function renderFengshuiAssessment(assessmentPayload) {
   fengshuiRecommendations.innerHTML = listHtml(assessment.recommendations);
   fengshuiCaution.textContent = assessment.caution || "";
 
-  if (assessmentPayload?.note) {
+  if (payload?.note) {
     fengshuiNote.classList.remove("hidden");
-    fengshuiNote.textContent = assessmentPayload.note;
+    fengshuiNote.textContent = payload.note;
   } else {
     fengshuiNote.classList.add("hidden");
     fengshuiNote.textContent = "";
@@ -476,7 +671,7 @@ function readFileAsDataUrl(file) {
 async function submitReading(event) {
   event.preventDefault();
 
-  const formData = new FormData(form);
+  const formData = new FormData(readingForm);
   const question = String(formData.get("question") || "").trim();
   const category = String(formData.get("category") || "").trim();
   const profile = String(formData.get("profile") || "").trim();
@@ -490,13 +685,13 @@ async function submitReading(event) {
   const useAI = formData.get("useAI") === "on";
 
   if (!question) {
-    statusText.textContent = t("requireQuestion");
+    setStatus(t("requireQuestion"));
     return;
   }
 
   submitButton.disabled = true;
-  submitButton.textContent = t("statusLoading");
-  statusText.textContent = t("statusLoading");
+  submitButton.textContent = t("statusLoadingReading");
+  setStatus(t("statusLoadingReading"));
 
   try {
     const response = await fetch(buildApiUrl("/api/reading"), {
@@ -520,11 +715,13 @@ async function submitReading(event) {
       throw new Error(data.error || t("failed"));
     }
 
-    showResultRoot();
-    statusText.textContent = t("statusDone", {
-      emotion: data.intent.emotionalState,
-      category: data.intent.category
-    });
+    showResultRoot("reading");
+    setStatus(
+      t("statusDoneReading", {
+        emotion: data.intent.emotionalState,
+        category: data.intent.category
+      })
+    );
 
     renderHexagram(primaryHexagram, data.reading.primary, data.reading.lines, "primaryLabel");
     renderHexagram(relatingHexagram, data.reading.relate, transformLines(data.reading.lines), "relatingLabel");
@@ -537,27 +734,29 @@ async function submitReading(event) {
     renderTemporal(data.reading.temporalStrategy);
     renderAi(data.ai);
   } catch (error) {
-    statusText.textContent = error.message || t("failed");
+    setStatus(error.message || t("failed"));
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = t("submitButton");
   }
 }
 
-async function submitDailyFortune() {
-  const formData = new FormData(form);
+async function submitDailyFortune(event) {
+  event.preventDefault();
+
+  const formData = new FormData(fortuneForm);
   const birthDate = String(formData.get("birthDate") || "").trim();
   const birthTime = String(formData.get("birthTime") || "").trim();
   const location = String(formData.get("location") || "").trim();
 
   if (!birthDate) {
-    statusText.textContent = t("requireBirth");
+    setStatus(t("requireBirth"));
     return;
   }
 
   fortuneButton.disabled = true;
-  fortuneButton.textContent = t("fortuneLoading");
-  statusText.textContent = t("fortuneLoading");
+  fortuneButton.textContent = t("statusLoadingFortune");
+  setStatus(t("statusLoadingFortune"));
 
   try {
     const response = await fetch(buildApiUrl("/api/daily-fortune"), {
@@ -576,10 +775,11 @@ async function submitDailyFortune() {
       throw new Error(data.error || t("failed"));
     }
 
-    showResultRoot();
-    fortuneSign.textContent = data.fortune.sign;
-    fortuneBand.textContent = data.fortune.band;
-    fortuneDate.textContent = data.fortune.date;
+    showResultRoot("fortune");
+    fortuneSign.textContent = data.fortune.sign || t("notDrawnYet");
+    fortuneSign.dataset.hasValue = "true";
+    fortuneBand.textContent = data.fortune.band || "-";
+    fortuneDate.textContent = data.fortune.date || "-";
     fortuneWeather.textContent = formatFortuneWeather(data.fortune);
     fortunePersonalElement.textContent = data.fortune.bazi
       ? `${data.fortune.bazi.elements.dominant} / ${data.fortune.bazi.elements.weakest}`
@@ -592,12 +792,15 @@ async function submitDailyFortune() {
     fortuneSuitable.innerHTML = tagHtml(data.fortune.suitable?.all);
     fortuneAvoid.innerHTML = tagHtml(data.fortune.unsuitable?.all, "avoid");
     fortuneAnalysis.innerHTML = analysisHtml(data.fortune.analysis);
-    statusText.textContent = t("fortuneDone", {
-      sign: data.fortune.sign,
-      band: data.fortune.band
-    });
+
+    setStatus(
+      t("statusDoneFortune", {
+        sign: data.fortune.sign,
+        band: data.fortune.band
+      })
+    );
   } catch (error) {
-    statusText.textContent = error.message || t("failed");
+    setStatus(error.message || t("failed"));
   } finally {
     fortuneButton.disabled = false;
     fortuneButton.textContent = t("fortuneButton");
@@ -608,7 +811,7 @@ async function submitFengshui(event) {
   event.preventDefault();
 
   if (!currentFengshuiImageDataUrl) {
-    statusText.textContent = currentLanguage === "en" ? "Please upload a room photo first." : currentLanguage === "ja" ? "まず部屋の写真をアップロードしてください。" : "请先上传一张空间照片。";
+    setStatus(t("uploadPhotoFirst"));
     return;
   }
 
@@ -618,8 +821,8 @@ async function submitFengshui(event) {
   const concerns = String(formData.get("concerns") || "").trim();
 
   fengshuiButton.disabled = true;
-  fengshuiButton.textContent = currentLanguage === "en" ? "Analyzing..." : currentLanguage === "ja" ? "分析中..." : "分析中...";
-  statusText.textContent = currentLanguage === "en" ? "Analyzing the uploaded room photo..." : currentLanguage === "ja" ? "部屋の写真を分析しています..." : "正在分析上传的空间照片...";
+  fengshuiButton.textContent = t("statusLoadingFengshui");
+  setStatus(t("statusLoadingFengshui"));
 
   try {
     const response = await fetch(buildApiUrl("/api/fengshui-assessment"), {
@@ -640,22 +843,16 @@ async function submitFengshui(event) {
     }
 
     renderFengshuiAssessment(data.assessment);
-    statusText.textContent =
-      currentLanguage === "en"
-        ? "Feng shui assessment completed."
-        : currentLanguage === "ja"
-          ? "風水評価が完了しました。"
-          : "风水评估已完成。";
+    setStatus(t("statusDoneFengshui"));
   } catch (error) {
-    statusText.textContent = error.message || t("failed");
+    setStatus(error.message || t("failed"));
   } finally {
     fengshuiButton.disabled = false;
-    fengshuiButton.textContent =
-      currentLanguage === "en" ? "Start Feng Shui Review" : currentLanguage === "ja" ? "風水評価を開始" : "开始风水评估";
+    fengshuiButton.textContent = t("fengshuiSubmit");
   }
 }
 
-fengshuiImageInput.addEventListener("change", async () => {
+async function handleFengshuiImageChange() {
   const file = fengshuiImageInput.files?.[0];
   if (!file) {
     currentFengshuiImageDataUrl = "";
@@ -667,9 +864,17 @@ fengshuiImageInput.addEventListener("change", async () => {
   currentFengshuiImageDataUrl = await readFileAsDataUrl(file);
   fengshuiPreview.src = currentFengshuiImageDataUrl;
   fengshuiPreviewWrap.classList.remove("hidden");
+}
+
+modeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    releaseStatus();
+    setActiveMode(button.dataset.mode);
+    statusText.textContent = t("statusIdle");
+  });
 });
 
-languageSelect.addEventListener("change", () => {
+languageSelect?.addEventListener("change", () => {
   currentLanguage = languageSelect.value;
   localStorage.setItem("yi-brain-language", currentLanguage);
   applyTranslations();
@@ -677,16 +882,21 @@ languageSelect.addEventListener("change", () => {
   if (!submitButton.disabled) {
     submitButton.textContent = t("submitButton");
   }
-
   if (!fortuneButton.disabled) {
     fortuneButton.textContent = t("fortuneButton");
   }
+  if (!fengshuiButton.disabled) {
+    fengshuiButton.textContent = t("fengshuiSubmit");
+  }
 });
 
+readingForm?.addEventListener("submit", submitReading);
+fortuneForm?.addEventListener("submit", submitDailyFortune);
+fengshuiForm?.addEventListener("submit", submitFengshui);
+fengshuiImageInput?.addEventListener("change", handleFengshuiImageChange);
+
 applyTranslations();
-form.addEventListener("submit", submitReading);
-fengshuiForm.addEventListener("submit", submitFengshui);
-fortuneButton.addEventListener("click", submitDailyFortune);
+setActiveMode(currentMode);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

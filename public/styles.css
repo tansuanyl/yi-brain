@@ -135,6 +135,49 @@ form,
   gap: 16px;
 }
 
+.panel-header.compact {
+  margin-bottom: 18px;
+}
+
+.mode-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0 22px;
+  padding: 10px;
+  border-radius: 24px;
+  background: rgba(255, 249, 241, 0.76);
+  border: 1px solid rgba(110, 38, 22, 0.12);
+}
+
+.mode-button {
+  min-height: 56px;
+  color: var(--accent-deep);
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.mode-button.active {
+  color: #fff7ef;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  box-shadow: 0 10px 24px rgba(110, 38, 22, 0.18);
+}
+
+.mode-panel {
+  display: block;
+}
+
+.result-root {
+  display: grid;
+  gap: 18px;
+}
+
+.result-block {
+  display: grid;
+  gap: 18px;
+}
+
 .feature-divider {
   height: 1px;
   margin: 28px 0;
@@ -538,6 +581,10 @@ ul {
   .fortune-element-bar,
   .fortune-meta,
   .fortune-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-switcher {
     grid-template-columns: 1fr;
   }
 
