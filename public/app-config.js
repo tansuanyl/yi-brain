@@ -1,3 +1,3 @@
 window.YI_BRAIN_CONFIG = window.YI_BRAIN_CONFIG || {
-  apiBaseUrl: ""
+  apiBaseUrl: "https://yi-brain.onrender.com"
 };
