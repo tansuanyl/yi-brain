@@ -1,0 +1,17 @@
+{
+  "name": "Yi-Brain",
+  "short_name": "Yi-Brain",
+  "description": "I Ching guided AI reflection and decision support app.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2eadf",
+  "theme_color": "#b14d2f",
+  "icons": [
+    {
+      "src": "/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

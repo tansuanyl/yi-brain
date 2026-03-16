@@ -9,17 +9,15 @@ function normalizeWeatherCode(code) {
 }
 
 function weatherLabel(normalized) {
-  const labels = {
+  return {
     clear: "晴朗",
     cloudy: "多云",
     fog: "有雾",
     rain: "有雨",
     snow: "有雪",
     storm: "雷暴",
-    mixed: "多变"
-  };
-
-  return labels[normalized] || labels.mixed;
+    mixed: "天气多变"
+  }[normalized] || "天气多变";
 }
 
 export async function getWeatherContext(location) {
@@ -27,8 +25,8 @@ export async function getWeatherContext(location) {
     return {
       available: false,
       source: "none",
-      summary: "未提供位置，今日签将只基于出生信息与日期生成。",
-      normalized: "mixed"
+      normalized: "mixed",
+      summary: "未提供位置，今日签将主要依据日期与个人信息生成。"
     };
   }
 
@@ -43,8 +41,8 @@ export async function getWeatherContext(location) {
       return {
         available: false,
         source: "geocoding",
-        summary: `未能识别“${location}”的位置，今日签将忽略天气因素。`,
-        normalized: "mixed"
+        normalized: "mixed",
+        summary: `未识别到 ${location} 的位置，今日签将忽略天气因素。`
       };
     }
 
@@ -58,8 +56,9 @@ export async function getWeatherContext(location) {
       return {
         available: false,
         source: "forecast",
-        summary: `已定位到${place.name}，但未成功获取天气，今日签将忽略天气因素。`,
-        normalized: "mixed"
+        normalized: "mixed",
+        locationName: place.name,
+        summary: `已定位到 ${place.name}，但暂时未获取到实时天气。`
       };
     }
 
@@ -71,7 +70,7 @@ export async function getWeatherContext(location) {
       temperature: current.temperature_2m,
       weatherCode: current.weather_code,
       normalized,
-      summary: `${place.name} 当前约 ${current.temperature_2m}°C，天气状态为 ${weatherLabel(normalized)}。`
+      summary: `${weatherLabel(normalized)}，约 ${current.temperature_2m}°C`
     };
   } catch (error) {
     return {

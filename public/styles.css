@@ -19,6 +19,11 @@ body {
   min-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
   color: var(--ink);
+  padding:
+    env(safe-area-inset-top, 0)
+    env(safe-area-inset-right, 0)
+    env(safe-area-inset-bottom, 0)
+    env(safe-area-inset-left, 0);
   background:
     radial-gradient(circle at top left, rgba(177, 77, 47, 0.18), transparent 30%),
     radial-gradient(circle at bottom right, rgba(65, 32, 22, 0.14), transparent 25%),
@@ -128,6 +133,31 @@ form,
 .insight-grid {
   display: grid;
   gap: 16px;
+}
+
+.feature-divider {
+  height: 1px;
+  margin: 28px 0;
+  background: linear-gradient(90deg, transparent, rgba(110, 38, 22, 0.18), transparent);
+}
+
+.fengshui-form {
+  display: grid;
+  gap: 16px;
+}
+
+.fengshui-preview-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(110, 38, 22, 0.12);
+  background: rgba(255, 249, 241, 0.86);
+}
+
+.fengshui-preview {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
 }
 
 label span {
@@ -277,6 +307,10 @@ button:hover {
 
 .timeline-step strong {
   color: var(--accent-deep);
+}
+
+.fengshui-grid {
+  margin-top: 12px;
 }
 
 .ai-output {
@@ -437,6 +471,43 @@ button:hover {
   gap: 10px;
 }
 
+.fortune-analysis-box {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 249, 241, 0.88);
+  border: 1px solid var(--line);
+}
+
+.fortune-analysis-box h4 {
+  margin: 0 0 14px;
+  font-family: "Noto Serif SC", serif;
+}
+
+.fortune-analysis {
+  display: grid;
+  gap: 12px;
+}
+
+.fortune-analysis-item {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(110, 38, 22, 0.08);
+}
+
+.fortune-analysis-item h5 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--accent-deep);
+}
+
+.fortune-analysis-item p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
 .fortune-tag {
   display: inline-flex;
   align-items: center;
@@ -482,5 +553,38 @@ ul {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 16px, 1200px);
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0));
+  }
+
+  .panel,
+  .hero-copy,
+  .hero-card {
+    border-radius: 22px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  textarea,
+  input,
+  select,
+  button {
+    min-height: 52px;
+    font-size: 16px;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  .fortune-sign {
+    font-size: 2.4rem;
   }
 }

@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import { analyzeIntent } from "./services/intent.js";
 import { buildDailyFortune } from "./services/dailyFortune.js";
 import { buildReading } from "./services/iching.js";
+import { generateFengShuiAssessment } from "./services/fengshui.js";
 import { generateAiInterpretation } from "./services/llm.js";
 
 dotenv.config();
@@ -18,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, "..", "public");
 
 app.use(cors());
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json({ limit: "15mb" }));
 app.use(express.static(publicDir));
 
 app.get("/api/health", (_req, res) => {
@@ -112,6 +113,42 @@ app.post("/api/daily-fortune", async (req, res) => {
     console.error(error);
     res.status(500).json({
       error: "Failed to generate daily fortune.",
+      details: error instanceof Error ? error.message : "Unknown error"
+    });
+  }
+});
+
+app.post("/api/fengshui-assessment", async (req, res) => {
+  try {
+    const {
+      imageDataUrl = "",
+      roomType = "",
+      goals = "",
+      concerns = "",
+      language = "zh-CN"
+    } = req.body || {};
+
+    if (!imageDataUrl || !String(imageDataUrl).startsWith("data:image/")) {
+      return res.status(400).json({ error: "A room photo is required." });
+    }
+
+    const assessment = await generateFengShuiAssessment({
+      imageDataUrl,
+      roomType,
+      goals,
+      concerns,
+      language
+    });
+
+    res.json({
+      app: process.env.APP_NAME || "Yi-Brain",
+      timestamp: new Date().toISOString(),
+      assessment
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Failed to generate feng shui assessment.",
       details: error instanceof Error ? error.message : "Unknown error"
     });
   }

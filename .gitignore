@@ -2,3 +2,12 @@ node_modules
 .env
 .DS_Store
 npm-debug.log*
+.npm-cache
+*.log
+dist
+build
+android/.gradle
+android/.idea
+android/local.properties
+ios/App/Pods
+ios/App/App/public

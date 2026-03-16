@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yi-Brain | 易经驱动的 AI 解惑系统</title>
+    <meta name="theme-color" content="#b14d2f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Yi-Brain | 易经驱动的 AI 决策与风水助手</title>
     <meta
       name="description"
-      content="Yi-Brain 是一个以易经推演为核心逻辑的 AI 问答与决策辅助应用。"
+      content="Yi-Brain 将易经推演、日运分析与 AI 风水评估结合起来，帮助用户做决策、反思与空间优化。"
     />
     <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,17 +39,17 @@
               </select>
             </label>
           </div>
-          <h1 data-i18n="heroTitle">以易经结构做推演，以 AI 语言给建议。</h1>
+          <h1 data-i18n="heroTitle">用易经结构推演，用 AI 语言与空间分析给建议。</h1>
           <p class="lede" data-i18n="heroLede">
-            将“起卦、变爻、时位”转化为结构化推理流程，帮助用户做反思、决策和情境判断。
+            把决策推演、今日运势和家居风水评估放进同一套反思工具里，让建议更贴近真实生活。
           </p>
         </div>
         <div class="hero-card">
-          <p data-i18n="methodTitle">产品方法</p>
+          <p data-i18n="methodTitle">方法</p>
           <ul>
-            <li data-i18n="method1">占卜式 Prompting</li>
-            <li data-i18n="method2">本卦 → 变卦 条件推演</li>
-            <li data-i18n="method3">时位感知解码</li>
+            <li data-i18n="method1">卦象式 Prompting</li>
+            <li data-i18n="method2">本卦到之卦的条件推演</li>
+            <li data-i18n="method3">照片识别 + 风水整改建议</li>
           </ul>
         </div>
       </header>
@@ -53,8 +57,8 @@
       <main class="layout">
         <section class="panel input-panel">
           <div class="panel-header">
-            <h2 data-i18n="formTitle">开始问事</h2>
-            <p data-i18n="formIntro">输入问题、背景和可选方案，生成一次完整的易理推演。</p>
+            <h2 data-i18n="formTitle">开始提问</h2>
+            <p data-i18n="formIntro">输入你的问题、背景与可选方案，生成一份完整的结构化推演。</p>
           </div>
 
           <form id="reading-form">
@@ -76,7 +80,7 @@
                 <select id="category" name="category">
                   <option value="" data-i18n="categoryAuto">自动识别</option>
                   <option value="career" data-i18n="categoryCareer">事业</option>
-                  <option value="relationship" data-i18n="categoryRelationship">感情</option>
+                  <option value="relationship" data-i18n="categoryRelationship">关系</option>
                   <option value="decision" data-i18n="categoryDecision">决策</option>
                   <option value="study" data-i18n="categoryStudy">学习</option>
                 </select>
@@ -89,7 +93,7 @@
                   name="options"
                   type="text"
                   data-i18n-placeholder="optionsPlaceholder"
-                  placeholder="用中文逗号分隔，例如：留下，跳槽，创业"
+                  placeholder="用逗号分隔，例如：留下，跳槽，创业"
                 />
               </label>
             </div>
@@ -124,28 +128,72 @@
                 name="profile"
                 rows="4"
                 data-i18n-placeholder="profilePlaceholder"
-                placeholder="例如：我在当前公司做了 5 年，最近成长停滞，但新机会风险较高。"
+                placeholder="例如：我在当前公司工作 5 年了，成长变慢，但新机会风险更高。"
               ></textarea>
             </label>
 
             <label class="toggle">
               <input id="useAI" name="useAI" type="checkbox" checked />
-              <span data-i18n="useAiLabel">调用 AI 生成现代语言解读</span>
+              <span data-i18n="useAiLabel">使用 AI 生成自然语言解读</span>
             </label>
 
-            <button id="submit-button" type="submit" data-i18n="submitButton">起卦并推演</button>
-            <button id="fortune-button" type="button" class="secondary-button" data-i18n="fortuneButton">抽取今日签</button>
+            <button id="submit-button" type="submit" data-i18n="submitButton">开始推演</button>
+            <button id="fortune-button" type="button" class="secondary-button" data-i18n="fortuneButton">
+              抽取今日签
+            </button>
+          </form>
+
+          <div class="feature-divider"></div>
+
+          <form id="fengshui-form" class="fengshui-form">
+            <div class="panel-header">
+              <h2>风水评估</h2>
+              <p>上传家中照片，让 AI 根据空间布局、采光、动线与周易取象给出风水分析和整改建议。</p>
+            </div>
+
+            <label>
+              <span>空间照片</span>
+              <input id="fengshui-image" name="fengshuiImage" type="file" accept="image/*" />
+            </label>
+
+            <div id="fengshui-preview-wrap" class="fengshui-preview-wrap hidden">
+              <img id="fengshui-preview" class="fengshui-preview" alt="Feng shui preview" />
+            </div>
+
+            <div class="grid-two">
+              <label>
+                <span>空间类型</span>
+                <input id="fengshui-room-type" name="roomType" type="text" placeholder="例如：客厅、卧室、书房、办公室" />
+              </label>
+
+              <label>
+                <span>优化目标</span>
+                <input id="fengshui-goals" name="goals" type="text" placeholder="例如：招财、睡眠稳定、提升专注、改善关系" />
+              </label>
+            </div>
+
+            <label>
+              <span>特别担忧</span>
+              <textarea
+                id="fengshui-concerns"
+                name="concerns"
+                rows="3"
+                placeholder="例如：镜子对床、门冲沙发、杂物太多、光线不足"
+              ></textarea>
+            </label>
+
+            <button id="fengshui-button" type="submit">开始风水评估</button>
           </form>
         </section>
 
         <section class="panel result-panel">
           <div class="panel-header">
             <h2 data-i18n="resultTitle">推演结果</h2>
-            <p id="status-text" data-i18n="statusIdle">提交问题后，这里会展示本卦、变卦、变爻和行动建议。</p>
+            <p id="status-text" data-i18n="statusIdle">提交问题或照片后，这里会显示分析结果。</p>
           </div>
 
           <div id="empty-state" class="empty-state">
-            <p data-i18n="emptyState">Yi-Brain 会把你的问题转成一次“结构化易理推演”。</p>
+            <p data-i18n="emptyState">Yi-Brain 会把你的问题或空间照片转成结构化分析，而不是给出武断结论。</p>
           </div>
 
           <div id="result-root" class="result-root hidden">
@@ -180,17 +228,17 @@
             </div>
 
             <article class="insight-card">
-              <h3 data-i18n="plainReadingTitle">白话详解</h3>
+              <h3 data-i18n="plainReadingTitle">白话解读</h3>
               <div id="plain-reading" class="prose-block"></div>
             </article>
 
             <article class="insight-card">
-              <h3 data-i18n="deepDiveTitle">深度展开</h3>
+              <h3 data-i18n="deepDiveTitle">深入展开</h3>
               <div id="deep-dive" class="prose-block"></div>
             </article>
 
             <article class="insight-card">
-              <h3 data-i18n="temporalTitle">时位感知解码</h3>
+              <h3 data-i18n="temporalTitle">阶段节奏</h3>
               <div id="temporal-strategy" class="timeline"></div>
             </article>
 
@@ -200,11 +248,40 @@
             </article>
 
             <article class="insight-card">
+              <h3>风水评估</h3>
+              <div id="fengshui-empty" class="empty-state">
+                <p>上传一张空间照片后，这里会显示整体判断、优点、问题点和整改建议。</p>
+              </div>
+              <div id="fengshui-result" class="hidden">
+                <p id="fengshui-summary"></p>
+                <div class="insight-grid fengshui-grid">
+                  <article class="insight-card">
+                    <h3>有利点</h3>
+                    <ul id="fengshui-strengths"></ul>
+                  </article>
+                  <article class="insight-card">
+                    <h3>风险点</h3>
+                    <ul id="fengshui-issues"></ul>
+                  </article>
+                  <article class="insight-card">
+                    <h3>整改建议</h3>
+                    <ul id="fengshui-recommendations"></ul>
+                  </article>
+                  <article class="insight-card">
+                    <h3>提示</h3>
+                    <p id="fengshui-caution"></p>
+                  </article>
+                </div>
+                <div id="fengshui-note" class="ai-output warning hidden"></div>
+              </div>
+            </article>
+
+            <article class="insight-card">
               <h3 data-i18n="dailyFortuneTitle">今日签</h3>
               <div class="fortune-card">
                 <div class="fortune-hero">
                   <div>
-                    <p class="fortune-eyebrow" data-i18n="dailyFortuneHeroLabel">今日签运</p>
+                    <p class="fortune-eyebrow" data-i18n="dailyFortuneHeroLabel">今日运势</p>
                     <div class="fortune-sign-row">
                       <strong id="fortune-sign" class="fortune-sign">未抽取</strong>
                       <span id="fortune-band" class="fortune-band">-</span>
@@ -257,12 +334,17 @@
                   <div id="fortune-avoid" class="fortune-tags"></div>
                 </div>
               </div>
+              <div class="fortune-analysis-box">
+                <h4 data-i18n="fortuneAnalysisTitle">今日分析</h4>
+                <div id="fortune-analysis" class="fortune-analysis"></div>
+              </div>
             </article>
           </div>
         </section>
       </main>
     </div>
 
+    <script src="/app-config.js"></script>
     <script type="module" src="/app.js"></script>
   </body>
 </html>

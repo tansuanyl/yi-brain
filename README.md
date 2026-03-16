@@ -9,6 +9,7 @@ Yi-Brain is an I Ching guided AI question-answering app for reflection, structur
 - Builds a primary hexagram and transformed hexagram
 - Produces line-change reasoning and phase-aware guidance
 - Optionally sends the structured result into an OpenAI-compatible model for richer interpretation
+- Supports feng shui photo review by analyzing room images and suggesting practical adjustments
 - Renders the result in a polished web interface
 
 ## Product positioning
@@ -20,6 +21,7 @@ Yi-Brain is designed as a reflective reasoning tool, not a superstition product 
 - Frontend: static HTML, CSS, vanilla JavaScript
 - Backend: Node.js + Express
 - AI layer: OpenAI-compatible chat completions API
+- Vision support: OpenAI-compatible multimodal model for room-photo feng shui review
 
 ## Local development
 
@@ -31,13 +33,14 @@ npm install
 ```
 
 3. Copy `.env.example` to `.env` and set `OPENAI_API_KEY`.
-4. Start the app:
+4. If you want photo-based feng shui analysis, optionally set `OPENAI_VISION_MODEL` to a vision-capable model.
+5. Start the app:
 
 ```bash
 npm run dev
 ```
 
-5. Open `http://localhost:3000`.
+6. Open `http://localhost:3000`.
 
 ## Deploy
 
@@ -54,6 +57,30 @@ npm run dev
 2. Railway will detect Node automatically.
 3. Set the environment variables.
 4. Deploy.
+
+## Mobile App
+
+Yi-Brain now includes a Capacitor-based mobile shell so the existing web UI can run as an Android or iOS app.
+
+Quick start:
+
+```bash
+npm install
+npm run mobile:sync
+npm run mobile:android
+```
+
+For iOS:
+
+```bash
+npm run mobile:ios
+```
+
+Important:
+
+- The mobile app uses the bundled web UI from `public/`
+- The backend API should be deployed online and configured in `public/app-config.js`
+- Detailed Chinese instructions are in `MOBILE_APP_ZH.md`
 
 ## GitHub publish
 
@@ -88,7 +115,22 @@ Request body:
 }
 ```
 
+### `POST /api/fengshui-assessment`
+
+Request body:
+
+```json
+{
+  "imageDataUrl": "data:image/jpeg;base64,...",
+  "roomType": "bedroom",
+  "goals": "better sleep and calmer energy",
+  "concerns": "mirror facing the bed",
+  "language": "zh-CN"
+}
+```
+
 ## Notes
 
 - If no API key is set, the app still works and returns rule-based interpretations.
+- If no API key is set, the feng shui photo feature falls back to a generic checklist instead of image recognition.
 - Hexagram source text in this project is modern paraphrase to keep output concise and product-friendly.
